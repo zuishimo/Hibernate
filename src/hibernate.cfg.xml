@@ -1,0 +1,25 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+       <session-factory>
+       <!-- Database connection setting -->
+            <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+            <!-- 由于采用的是mysql8,在url配置上要加入属性信息 ?useSSL=false&amp;serverTimezone=Asia/Shanghai -->
+            <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/iphone_product?useSSL=false&amp;serverTimezone=GMT</property>
+            <property name="hibernate.connection.username">root</property>
+            <property name="hibernate.connection.password">jatqq447xxwwkk</property>
+            <!-- SQL dialect -->
+            <!--方言的配置要使用MySQL8Dialect，如果是MySQLDialect就无法自动创建表 -->
+            <property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
+            <property name="current_session_context_class">thread</property>
+            <property name="hibernate.show_sql">true</property>
+            <property name="hibernate.format_sql">true</property>
+            
+            <property name="hibernate.hbm2ddl.auto">update</property>       <!-- 自动更新表结构 -->
+            <!--   <mapping resource="entity/Product.hbm.xml"/>   -->
+            <mapping class="entity.Product"></mapping>
+       </session-factory>
+</hibernate-configuration>
